@@ -1,6 +1,8 @@
 ﻿Imports System.Data.OleDb
 
 Public Class FormLogin
+    Dim x, y As Integer
+    Dim newPoint As New Point
     Dim connection As New OleDbConnection(My.Settings.ContactsConnectionString)
 
     Private Sub ButtonLogin_Click(sender As Object, e As EventArgs) Handles ButtonLogin.Click
@@ -47,7 +49,28 @@ Public Class FormLogin
                 cmnd.Dispose()
 
                 MsgBox("Registration Successful.", MsgBoxStyle.Information)
+                Password.Text = ""
             End If
+        End If
+    End Sub
+
+    Private Sub ButtonClose_Click(sender As Object, e As EventArgs) Handles ButtonClose.Click
+        Close()
+    End Sub
+
+    Private Sub MouseDownEvent(sender As Object, e As MouseEventArgs) Handles Panel3.MouseDown
+        x = Control.MousePosition.X - Me.Location.X
+        y = Control.MousePosition.Y - Me.Location.Y
+
+    End Sub
+
+    Private Sub MouseMoveEvent(sender As Object, e As MouseEventArgs) Handles Panel3.MouseMove
+        If e.Button = Windows.Forms.MouseButtons.Left Then
+            newPoint = Control.MousePosition
+            newPoint.X -= x
+            newPoint.Y -= y
+            Me.Location = newPoint
+            Application.DoEvents()
         End If
     End Sub
 End Class

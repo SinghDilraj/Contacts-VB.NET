@@ -78,6 +78,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ContactsDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FormAccount.Designer.vb">
+      <DependentUpon>FormAccount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAccount.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormLogin.vb">
       <SubType>Form</SubType>
     </Compile>
