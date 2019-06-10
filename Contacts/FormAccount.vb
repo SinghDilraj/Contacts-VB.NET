@@ -38,7 +38,9 @@ Public Class FormAccount
     End Sub
 
     Private Sub Contacts_Click(sender As Object, e As EventArgs) Handles Contacts.Click
-        Dim formContacts As New FormContacts()
+        Dim formContacts As New FormContacts With {
+            .Email = Email
+        }
         formContacts.Show()
         Close()
     End Sub

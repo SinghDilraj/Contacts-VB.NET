@@ -1,12 +1,16 @@
 ﻿Imports System.Data.OleDb
 
-Public Class FormContacts
+Public Class FormAddContact
     Dim x, y As Integer
     Dim newPoint As New Point
     Public Email As String
     Dim connection As New OleDbConnection(My.Settings.ContactsConnectionString)
     Private Sub ButtonClose_Click(sender As Object, e As EventArgs) Handles ButtonClose.Click
+        Dim formContacts As New FormContacts With {
+            .Email = Email
+        }
         Close()
+        formContacts.Show()
     End Sub
 
     Private Sub MouseDownEvent(sender As Object, e As MouseEventArgs) Handles Panel3.MouseDown
@@ -15,7 +19,7 @@ Public Class FormContacts
 
     End Sub
 
-    Private Sub FormContacts_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub ButtonAddContact_Click(sender As Object, e As EventArgs) Handles ButtonAddContact.Click
         If connection.State = ConnectionState.Closed Then
             connection.Open()
         End If
@@ -23,19 +27,18 @@ Public Class FormContacts
         cmd.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = Email
         Dim UserId = Convert.ToInt32(cmd.ExecuteScalar())
 
-        Dim adapter As New OleDbDataAdapter($"select Email from Contacts where UserId={UserId}", connection)
-        Dim table As New DataTable()
-        adapter.Fill(table)
-        DataGridContacts.DataSource = table
-        connection.Dispose()
-    End Sub
+        Dim cmnd As New OleDbCommand("Insert Into Contacts([Email], [UserId]) Values (?, ?)", connection)
+        cmnd.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = ContactEmail.Text
+        cmnd.Parameters.AddWithValue("@2", OleDbType.Integer).Value = UserId
+        cmnd.ExecuteNonQuery()
 
-    Private Sub ButtonAddContact_Click(sender As Object, e As EventArgs) Handles ButtonAddContact.Click
-        Dim formAddContact As New FormAddContact With {
+        connection.Dispose()
+
+        Dim formContacts As New FormContacts With {
             .Email = Email
         }
-        formAddContact.Show()
         Close()
+        formContacts.Show()
     End Sub
 
     Private Sub MouseMoveEvent(sender As Object, e As MouseEventArgs) Handles Panel3.MouseMove
