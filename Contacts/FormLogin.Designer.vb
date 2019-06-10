@@ -28,15 +28,15 @@ Partial Class FormLogin
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.ButtonLogin = New System.Windows.Forms.Button()
         Me.ButtonRegister = New System.Windows.Forms.Button()
+        Me.ButtonClose = New System.Windows.Forms.Button()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ButtonClose = New System.Windows.Forms.Button()
-        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel3.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Email
@@ -111,6 +111,30 @@ Partial Class FormLogin
         Me.ButtonRegister.Text = "Register"
         Me.ButtonRegister.UseVisualStyleBackColor = False
         '
+        'ButtonClose
+        '
+        Me.ButtonClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.ButtonClose.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ButtonClose.FlatAppearance.BorderSize = 0
+        Me.ButtonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonClose.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonClose.ForeColor = System.Drawing.SystemColors.Window
+        Me.ButtonClose.Location = New System.Drawing.Point(306, 0)
+        Me.ButtonClose.Name = "ButtonClose"
+        Me.ButtonClose.Size = New System.Drawing.Size(27, 25)
+        Me.ButtonClose.TabIndex = 9
+        Me.ButtonClose.Text = "X"
+        Me.ButtonClose.UseVisualStyleBackColor = True
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(49, Byte), Integer))
+        Me.Panel3.Controls.Add(Me.ButtonClose)
+        Me.Panel3.Location = New System.Drawing.Point(-1, -1)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(333, 25)
+        Me.Panel3.TabIndex = 10
+        '
         'PictureBox3
         '
         Me.PictureBox3.Image = Global.Contacts.My.Resources.Resources.PasswordIcon
@@ -143,30 +167,6 @@ Partial Class FormLogin
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'ButtonClose
-        '
-        Me.ButtonClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ButtonClose.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ButtonClose.FlatAppearance.BorderSize = 0
-        Me.ButtonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButtonClose.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonClose.ForeColor = System.Drawing.SystemColors.Window
-        Me.ButtonClose.Location = New System.Drawing.Point(306, 0)
-        Me.ButtonClose.Name = "ButtonClose"
-        Me.ButtonClose.Size = New System.Drawing.Size(27, 25)
-        Me.ButtonClose.TabIndex = 9
-        Me.ButtonClose.Text = "X"
-        Me.ButtonClose.UseVisualStyleBackColor = True
-        '
-        'Panel3
-        '
-        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.Panel3.Controls.Add(Me.ButtonClose)
-        Me.Panel3.Location = New System.Drawing.Point(-1, -1)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(333, 25)
-        Me.Panel3.TabIndex = 10
-        '
         'FormLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -187,10 +187,10 @@ Partial Class FormLogin
         Me.Name = "FormLogin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Login"
+        Me.Panel3.ResumeLayout(False)
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel3.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

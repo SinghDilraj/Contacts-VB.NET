@@ -19,7 +19,11 @@ Public Class FormLogin
             Dim count = Convert.ToInt32(cmd.ExecuteScalar())
             cmd.Dispose()
             If (count > 0) Then
-                MsgBox("Login Successfull.", MsgBoxStyle.Information)
+                Dim formAccount As New FormAccount With {
+                    .Email = Email.Text
+                }
+                formAccount.Show()
+                Hide()
             Else
                 MsgBox("Invalid Email or Password.", MsgBoxStyle.Critical)
             End If
@@ -59,8 +63,8 @@ Public Class FormLogin
     End Sub
 
     Private Sub MouseDownEvent(sender As Object, e As MouseEventArgs) Handles Panel3.MouseDown
-        x = Control.MousePosition.X - Me.Location.X
-        y = Control.MousePosition.Y - Me.Location.Y
+        x = Control.MousePosition.X - Location.X
+        y = Control.MousePosition.Y - Location.Y
 
     End Sub
 
@@ -69,7 +73,7 @@ Public Class FormLogin
             newPoint = Control.MousePosition
             newPoint.X -= x
             newPoint.Y -= y
-            Me.Location = newPoint
+            Location = newPoint
             Application.DoEvents()
         End If
     End Sub
