@@ -22,13 +22,15 @@ Partial Class FormAccount
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.ButtonClose = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Contacts = New System.Windows.Forms.Button()
         Me.Logout = New System.Windows.Forms.Button()
-        Me.UserEmail = New System.Windows.Forms.TextBox()
-        Me.Welcome = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.UserEmail = New System.Windows.Forms.Label()
+        Me.Timer = New System.Windows.Forms.Timer(Me.components)
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -37,6 +39,7 @@ Partial Class FormAccount
         '
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.Panel3.Controls.Add(Me.ButtonClose)
+        Me.Panel3.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Panel3.Location = New System.Drawing.Point(1, 1)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(333, 25)
@@ -97,34 +100,35 @@ Partial Class FormAccount
         Me.Logout.Text = "Logout"
         Me.Logout.UseVisualStyleBackColor = False
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(49, Byte), Integer))
+        Me.Label1.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.Window
+        Me.Label1.Location = New System.Drawing.Point(119, 149)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(92, 22)
+        Me.Label1.TabIndex = 17
+        Me.Label1.Text = "Welcome"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'UserEmail
         '
+        Me.UserEmail.AutoSize = True
         Me.UserEmail.BackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.UserEmail.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.UserEmail.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.UserEmail.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UserEmail.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UserEmail.ForeColor = System.Drawing.SystemColors.Window
-        Me.UserEmail.Location = New System.Drawing.Point(34, 193)
+        Me.UserEmail.Location = New System.Drawing.Point(95, 188)
         Me.UserEmail.Name = "UserEmail"
-        Me.UserEmail.ShortcutsEnabled = False
-        Me.UserEmail.Size = New System.Drawing.Size(267, 25)
-        Me.UserEmail.TabIndex = 15
-        Me.UserEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.UserEmail.Size = New System.Drawing.Size(40, 22)
+        Me.UserEmail.TabIndex = 18
+        Me.UserEmail.Text = "      "
+        Me.UserEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Welcome
+        'Timer
         '
-        Me.Welcome.BackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.Welcome.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.Welcome.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Welcome.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Welcome.ForeColor = System.Drawing.SystemColors.Window
-        Me.Welcome.Location = New System.Drawing.Point(115, 148)
-        Me.Welcome.Name = "Welcome"
-        Me.Welcome.ShortcutsEnabled = False
-        Me.Welcome.Size = New System.Drawing.Size(97, 25)
-        Me.Welcome.TabIndex = 16
-        Me.Welcome.Text = "Welcome"
-        Me.Welcome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.Timer.Interval = 500
         '
         'FormAccount
         '
@@ -132,8 +136,8 @@ Partial Class FormAccount
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(331, 429)
-        Me.Controls.Add(Me.Welcome)
         Me.Controls.Add(Me.UserEmail)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Logout)
         Me.Controls.Add(Me.Contacts)
         Me.Controls.Add(Me.PictureBox1)
@@ -154,6 +158,7 @@ Partial Class FormAccount
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Contacts As Button
     Friend WithEvents Logout As Button
-    Friend WithEvents UserEmail As TextBox
-    Friend WithEvents Welcome As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents UserEmail As Label
+    Friend WithEvents Timer As Timer
 End Class

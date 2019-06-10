@@ -130,6 +130,7 @@ Partial Class FormLogin
         '
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.Panel3.Controls.Add(Me.ButtonClose)
+        Me.Panel3.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Panel3.Location = New System.Drawing.Point(-1, -1)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(333, 25)

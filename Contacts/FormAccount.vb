@@ -17,13 +17,20 @@ Public Class FormAccount
 
     Private Sub FormAccount_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         UserEmail.Text = Email
+        Windows.Forms.Timer.Start()
     End Sub
+
+
 
     Private Sub Logout_Click(sender As Object, e As EventArgs) Handles Logout.Click
         Hide()
         Dim formLogin As New FormLogin()
         formLogin.Show()
         Close()
+    End Sub
+
+    Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
+        UserEmail.Left -= 1
     End Sub
 
     Private Sub MouseMoveEvent(sender As Object, e As MouseEventArgs) Handles Panel3.MouseMove
