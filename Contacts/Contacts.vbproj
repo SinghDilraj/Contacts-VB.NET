@@ -102,9 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -120,19 +120,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\contacts.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\EmailIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\PasswordIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ContactsIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ContactsBookIcon.png" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -87,7 +87,7 @@ Partial Class FormLogin
         Me.ButtonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ButtonLogin.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ButtonLogin.ForeColor = System.Drawing.Color.White
-        Me.ButtonLogin.Location = New System.Drawing.Point(99, 314)
+        Me.ButtonLogin.Location = New System.Drawing.Point(97, 314)
         Me.ButtonLogin.Name = "ButtonLogin"
         Me.ButtonLogin.Size = New System.Drawing.Size(129, 31)
         Me.ButtonLogin.TabIndex = 7
@@ -101,7 +101,7 @@ Partial Class FormLogin
         Me.ButtonRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ButtonRegister.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ButtonRegister.ForeColor = System.Drawing.Color.White
-        Me.ButtonRegister.Location = New System.Drawing.Point(99, 365)
+        Me.ButtonRegister.Location = New System.Drawing.Point(97, 365)
         Me.ButtonRegister.Name = "ButtonRegister"
         Me.ButtonRegister.Size = New System.Drawing.Size(129, 31)
         Me.ButtonRegister.TabIndex = 8
@@ -131,11 +131,11 @@ Partial Class FormLogin
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.BackgroundImage = Global.Contacts.My.Resources.Resources.contacts
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.Image = Global.Contacts.My.Resources.Resources.contactsBookIcon
         Me.PictureBox1.Location = New System.Drawing.Point(-1, 30)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(333, 78)
+        Me.PictureBox1.Size = New System.Drawing.Size(333, 97)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
