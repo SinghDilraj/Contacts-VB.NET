@@ -130,7 +130,7 @@ Partial Class FormContacts
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridContacts.DefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridContacts.GridColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.DataGridContacts.Location = New System.Drawing.Point(97, 200)
+        Me.DataGridContacts.Location = New System.Drawing.Point(80, 200)
         Me.DataGridContacts.Name = "DataGridContacts"
         Me.DataGridContacts.ReadOnly = True
         Me.DataGridContacts.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
@@ -144,7 +144,7 @@ Partial Class FormContacts
         Me.DataGridContacts.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridContacts.RowHeadersVisible = False
         Me.DataGridContacts.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridContacts.Size = New System.Drawing.Size(139, 278)
+        Me.DataGridContacts.Size = New System.Drawing.Size(164, 278)
         Me.DataGridContacts.TabIndex = 14
         '
         'PictureBox1
