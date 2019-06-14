@@ -37,8 +37,7 @@ Public Class FormContacts
         End While
 
         ListContacts.DataSource = table
-        'ListContacts.DisplayMember = "Email"
-        'ListContacts.ValueMember = "Email"
+
         connection.Dispose()
     End Sub
 
@@ -72,6 +71,8 @@ Public Class FormContacts
             wb.Worksheets.Add(datatable, "Contacts")
             wb.SaveAs(folderPath & Convert.ToString("ContactsViewExport.xlsx"))
         End Using
+
+        MsgBox("Exported Successfully.", MsgBoxStyle.Information)
     End Sub
 
     Private Sub MouseMoveEvent(sender As Object, e As MouseEventArgs) Handles Panel3.MouseMove
