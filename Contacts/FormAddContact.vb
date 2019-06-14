@@ -6,11 +6,11 @@ Public Class FormAddContact
     Public Email As String
     Dim connection As New OleDbConnection(My.Settings.ContactsConnectionString)
     Private Sub ButtonClose_Click(sender As Object, e As EventArgs) Handles ButtonClose.Click
-        Dim formContacts As New FormContacts With {
+        Dim formAccount As New FormAccount With {
             .Email = Email
         }
+        formAccount.Show()
         Close()
-        formContacts.Show()
     End Sub
 
     Private Sub MouseDownEvent(sender As Object, e As MouseEventArgs) Handles Panel3.MouseDown

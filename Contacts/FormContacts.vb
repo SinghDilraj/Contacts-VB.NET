@@ -8,6 +8,10 @@ Public Class FormContacts
     Public Email As String
     Dim connection As New OleDbConnection(My.Settings.ContactsConnectionString)
     Private Sub ButtonClose_Click(sender As Object, e As EventArgs) Handles ButtonClose.Click
+        Dim formAccount As New FormAccount With {
+            .Email = Email
+        }
+        formAccount.Show()
         Close()
     End Sub
 

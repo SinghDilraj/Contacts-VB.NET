@@ -5,6 +5,9 @@ Public Class FormAccount
     Dim newPoint As New Point
     Public Email As String
     Private Sub ButtonClose_Click(sender As Object, e As EventArgs) Handles ButtonClose.Click
+        Hide()
+        Dim formLogin As New FormLogin()
+        formLogin.Show()
         Close()
     End Sub
 
