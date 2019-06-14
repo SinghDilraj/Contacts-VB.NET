@@ -22,7 +22,6 @@ Partial Class FormContacts
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -30,14 +29,9 @@ Partial Class FormContacts
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.ButtonClose = New System.Windows.Forms.Button()
         Me.ButtonAddContact = New System.Windows.Forms.Button()
-        Me.ContactsDataSet = New Contacts.ContactsDataSet()
-        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ContactsTableAdapter1 = New Contacts.ContactsDataSetTableAdapters.ContactsTableAdapter()
         Me.DataGridContacts = New System.Windows.Forms.DataGridView()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel3.SuspendLayout()
-        CType(Me.ContactsDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridContacts, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -80,20 +74,6 @@ Partial Class FormContacts
         Me.ButtonAddContact.TabIndex = 12
         Me.ButtonAddContact.Text = "Add Contact"
         Me.ButtonAddContact.UseVisualStyleBackColor = False
-        '
-        'ContactsDataSet
-        '
-        Me.ContactsDataSet.DataSetName = "ContactsDataSet"
-        Me.ContactsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'BindingSource1
-        '
-        Me.BindingSource1.DataMember = "Contacts"
-        Me.BindingSource1.DataSource = Me.ContactsDataSet
-        '
-        'ContactsTableAdapter1
-        '
-        Me.ContactsTableAdapter1.ClearBeforeFill = True
         '
         'DataGridContacts
         '
@@ -175,8 +155,6 @@ Partial Class FormContacts
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormContacts"
         Me.Panel3.ResumeLayout(False)
-        CType(Me.ContactsDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridContacts, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -194,8 +172,5 @@ Partial Class FormContacts
     Friend WithEvents EmailDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents ContactsDataSet As ContactsDataSet
-    Friend WithEvents BindingSource1 As BindingSource
-    Friend WithEvents ContactsTableAdapter1 As ContactsDataSetTableAdapters.ContactsTableAdapter
     Friend WithEvents DataGridContacts As DataGridView
 End Class
