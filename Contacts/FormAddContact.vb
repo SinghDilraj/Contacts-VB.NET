@@ -28,18 +28,18 @@ Public Class FormAddContact
         Dim UserId = Convert.ToInt32(GetUserId.ExecuteScalar())
 
         If ContactEmail IsNot Nothing Then
-            Dim cmnd As New OleDbCommand("Insert Into Contacts([Email]) Values (?)", connection)
-            cmnd.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = ContactEmail.Text
-            cmnd.ExecuteNonQuery()
+            Dim AddContact As New OleDbCommand("Insert Into Contacts([Email]) Values (?)", connection)
+            AddContact.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = ContactEmail.Text
+            AddContact.ExecuteNonQuery()
 
-            Dim comand As New OleDbCommand("select ContactID from Contacts where Email=?", connection)
-            comand.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = ContactEmail.Text
-            Dim ContactId = Convert.ToInt32(comand.ExecuteScalar())
+            Dim GetContactId As New OleDbCommand("select ContactID from Contacts where Email=?", connection)
+            GetContactId.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = ContactEmail.Text
+            Dim ContactId = Convert.ToInt32(GetContactId.ExecuteScalar())
 
-            Dim comnd As New OleDbCommand("Insert Into UsersContacts([UserID], [ContactID]) Values (?, ?)", connection)
-            comnd.Parameters.AddWithValue("@1", OleDbType.Integer).Value = UserId
-            comnd.Parameters.AddWithValue("@2", OleDbType.Integer).Value = ContactId
-            comnd.ExecuteNonQuery()
+            Dim CreateRelation As New OleDbCommand("Insert Into UsersContacts([UserID], [ContactID]) Values (?, ?)", connection)
+            CreateRelation.Parameters.AddWithValue("@1", OleDbType.Integer).Value = UserId
+            CreateRelation.Parameters.AddWithValue("@2", OleDbType.Integer).Value = ContactId
+            CreateRelation.ExecuteNonQuery()
         Else
             MsgBox("Contact Email is Required.", MsgBoxStyle.Critical)
         End If

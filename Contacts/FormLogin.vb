@@ -12,12 +12,13 @@ Public Class FormLogin
             If connection.State = ConnectionState.Closed Then
                 connection.Open()
             End If
-            Dim cmd As New OleDbCommand("select count(*) from Users where Email=? and Password=?", connection)
-            cmd.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = Email.Text
-            cmd.Parameters.AddWithValue("@2", OleDbType.VarChar).Value = Password.Text
+            Dim UserExists As New OleDbCommand("select count(*) from Users where Email=? and Password=?", connection)
+            UserExists.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = Email.Text
+            UserExists.Parameters.AddWithValue("@2", OleDbType.VarChar).Value = Password.Text
 
-            Dim count = Convert.ToInt32(cmd.ExecuteScalar())
-            cmd.Dispose()
+            Dim count = Convert.ToInt32(UserExists.ExecuteScalar())
+            UserExists.Dispose()
+
             If (count > 0) Then
                 Dim formAccount As New FormAccount With {
                     .Email = Email.Text
@@ -37,20 +38,20 @@ Public Class FormLogin
             If connection.State = ConnectionState.Closed Then
                 connection.Open()
             End If
-            Dim cmd As New OleDbCommand("select count(*) from Users where Email=? and Password=?", connection)
-            cmd.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = Email.Text
-            cmd.Parameters.AddWithValue("@2", OleDbType.VarChar).Value = Password.Text
+            Dim UserExists As New OleDbCommand("select count(*) from Users where Email=? and Password=?", connection)
+            UserExists.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = Email.Text
+            UserExists.Parameters.AddWithValue("@2", OleDbType.VarChar).Value = Password.Text
 
-            Dim count = Convert.ToInt32(cmd.ExecuteScalar())
+            Dim count = Convert.ToInt32(UserExists.ExecuteScalar())
 
             If (count > 0) Then
                 MsgBox("User Cannot be Registered.", MsgBoxStyle.Critical)
             Else
-                Dim cmnd As New OleDbCommand("Insert into Users([Email], [Password]) Values (?, ?)", connection)
-                cmnd.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = Email.Text
-                cmnd.Parameters.AddWithValue("@2", OleDbType.VarChar).Value = Password.Text
-                cmnd.ExecuteNonQuery()
-                cmnd.Dispose()
+                Dim Register As New OleDbCommand("Insert into Users([Email], [Password]) Values (?, ?)", connection)
+                Register.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = Email.Text
+                Register.Parameters.AddWithValue("@2", OleDbType.VarChar).Value = Password.Text
+                Register.ExecuteNonQuery()
+                Register.Dispose()
 
                 MsgBox("Registration Successful.", MsgBoxStyle.Information)
                 Password.Text = ""

@@ -19,13 +19,13 @@ Public Class FormContacts
         If connection.State = ConnectionState.Closed Then
             connection.Open()
         End If
-        Dim cmd As New OleDbCommand("select UserID from Users where Email=?", connection)
-        cmd.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = Email
-        Dim UserId = Convert.ToInt32(cmd.ExecuteScalar())
+        Dim GetUserId As New OleDbCommand("select UserID from Users where Email=?", connection)
+        GetUserId.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = Email
+        Dim UserId = Convert.ToInt32(GetUserId.ExecuteScalar())
 
-        Dim cmnd As New OleDbCommand("select ContactID from UsersContacts where UserID=?", connection)
-        cmnd.Parameters.AddWithValue("@1", OleDbType.Integer).Value = UserId
-        Dim ContactIds = cmnd.ExecuteReader()
+        Dim GetContactIDs As New OleDbCommand("select ContactID from UsersContacts where UserID=?", connection)
+        GetContactIDs.Parameters.AddWithValue("@1", OleDbType.Integer).Value = UserId
+        Dim ContactIds = GetContactIDs.ExecuteReader()
 
         Dim table As New DataTable()
 
@@ -34,7 +34,7 @@ Public Class FormContacts
             adapter.Fill(table)
         End While
 
-        DataGridContacts.DataSource = table
+        ListContacts.DataSource = table
         connection.Dispose()
     End Sub
 
