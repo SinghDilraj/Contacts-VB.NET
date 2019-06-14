@@ -91,6 +91,7 @@ Partial Class FormContacts
         Me.ListContacts.AllowUserToDeleteRows = False
         Me.ListContacts.AllowUserToResizeColumns = False
         Me.ListContacts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.ListContacts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.ListContacts.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ListContacts.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.ListContacts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
@@ -103,7 +104,6 @@ Partial Class FormContacts
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(49, Byte), Integer))
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(3)
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ListContacts.RowsDefaultCellStyle = DataGridViewCellStyle1
         Me.ListContacts.RowTemplate.ReadOnly = True
