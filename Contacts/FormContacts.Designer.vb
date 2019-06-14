@@ -92,6 +92,7 @@ Partial Class FormContacts
         Me.ListContacts.ItemHeight = 17
         Me.ListContacts.Location = New System.Drawing.Point(86, 205)
         Me.ListContacts.Name = "ListContacts"
+        Me.ListContacts.SelectionMode = System.Windows.Forms.SelectionMode.None
         Me.ListContacts.Size = New System.Drawing.Size(213, 238)
         Me.ListContacts.TabIndex = 14
         '
