@@ -28,18 +28,26 @@ Public Class FormAddContact
         Dim UserId = Convert.ToInt32(GetUserId.ExecuteScalar())
 
         If ContactEmail IsNot Nothing Then
-            Dim AddContact As New OleDbCommand("Insert Into Contacts([Email]) Values (?)", connection)
-            AddContact.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = ContactEmail.Text
-            AddContact.ExecuteNonQuery()
+            If ContactEmail.Text.Contains("@") And
+                ContactEmail.Text.Contains(".") And
+                ContactEmail.Text.Length > 5 Then
 
-            Dim GetContactId As New OleDbCommand("select ContactID from Contacts where Email=?", connection)
-            GetContactId.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = ContactEmail.Text
-            Dim ContactId = Convert.ToInt32(GetContactId.ExecuteScalar())
+                Dim AddContact As New OleDbCommand("Insert Into Contacts([Email]) Values (?)", connection)
+                AddContact.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = ContactEmail.Text
+                AddContact.ExecuteNonQuery()
 
-            Dim CreateRelation As New OleDbCommand("Insert Into UsersContacts([UserID], [ContactID]) Values (?, ?)", connection)
-            CreateRelation.Parameters.AddWithValue("@1", OleDbType.Integer).Value = UserId
-            CreateRelation.Parameters.AddWithValue("@2", OleDbType.Integer).Value = ContactId
-            CreateRelation.ExecuteNonQuery()
+                Dim GetContactId As New OleDbCommand("select ContactID from Contacts where Email=?", connection)
+                GetContactId.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = ContactEmail.Text
+                Dim ContactId = Convert.ToInt32(GetContactId.ExecuteScalar())
+
+                Dim CreateRelation As New OleDbCommand("Insert Into UsersContacts([UserID], [ContactID]) Values (?, ?)", connection)
+                CreateRelation.Parameters.AddWithValue("@1", OleDbType.Integer).Value = UserId
+                CreateRelation.Parameters.AddWithValue("@2", OleDbType.Integer).Value = ContactId
+                CreateRelation.ExecuteNonQuery()
+
+            Else
+                MsgBox("Invalid Email. Must include '@' and '.' characters.", MsgBoxStyle.Exclamation)
+            End If
         Else
             MsgBox("Contact Email is Required.", MsgBoxStyle.Critical)
         End If

@@ -9,24 +9,33 @@ Public Class FormLogin
         If Email.Text = Nothing Or Password.Text = Nothing Then
             MsgBox("Please enter your Email and password.", MsgBoxStyle.Exclamation)
         Else
-            If connection.State = ConnectionState.Closed Then
-                connection.Open()
-            End If
-            Dim UserExists As New OleDbCommand("select count(*) from Users where Email=? and Password=?", connection)
-            UserExists.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = Email.Text
-            UserExists.Parameters.AddWithValue("@2", OleDbType.VarChar).Value = Password.Text
+            If Email.Text.Contains("@") And
+                Email.Text.Contains(".") And
+                Email.Text.Length > 5 And
+                Password.Text.Length > 6 Then
 
-            Dim count = Convert.ToInt32(UserExists.ExecuteScalar())
-            UserExists.Dispose()
+                If connection.State = ConnectionState.Closed Then
+                    connection.Open()
+                End If
+                Dim UserExists As New OleDbCommand("select count(*) from Users where Email=? and Password=?", connection)
+                UserExists.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = Email.Text
+                UserExists.Parameters.AddWithValue("@2", OleDbType.VarChar).Value = Password.Text
 
-            If (count > 0) Then
-                Dim formAccount As New FormAccount With {
-                    .Email = Email.Text
-                }
-                formAccount.Show()
-                Hide()
+                Dim count = Convert.ToInt32(UserExists.ExecuteScalar())
+                UserExists.Dispose()
+
+                If (count > 0) Then
+                    Dim formAccount As New FormAccount With {
+                        .Email = Email.Text
+                    }
+                    formAccount.Show()
+                    Hide()
+                Else
+                    MsgBox("Invalid Email or Password.", MsgBoxStyle.Critical)
+                End If
+
             Else
-                MsgBox("Invalid Email or Password.", MsgBoxStyle.Critical)
+                MsgBox("Invalid Email or password. Password must be at least 7 characters.", MsgBoxStyle.Exclamation)
             End If
         End If
     End Sub
@@ -35,25 +44,34 @@ Public Class FormLogin
         If Email.Text = Nothing Or Password.Text = Nothing Then
             MsgBox("Please enter your Email and password.", MsgBoxStyle.Exclamation)
         Else
-            If connection.State = ConnectionState.Closed Then
-                connection.Open()
-            End If
-            Dim UserExists As New OleDbCommand("select count(*) from Users where Email=?", connection)
-            UserExists.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = Email.Text
+            If Email.Text.Contains("@") And
+                Email.Text.Contains(".") And
+                Email.Text.Length > 5 And
+                Password.Text.Length > 6 Then
 
-            Dim count = Convert.ToInt32(UserExists.ExecuteScalar())
+                If connection.State = ConnectionState.Closed Then
+                    connection.Open()
+                End If
+                Dim UserExists As New OleDbCommand("select count(*) from Users where Email=?", connection)
+                UserExists.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = Email.Text
 
-            If (count > 0) Then
-                MsgBox("User Cannot be Registered.", MsgBoxStyle.Critical)
+                Dim count = Convert.ToInt32(UserExists.ExecuteScalar())
+
+                If (count > 0) Then
+                    MsgBox("User Cannot be Registered.", MsgBoxStyle.Critical)
+                Else
+                    Dim Register As New OleDbCommand("Insert into Users([Email], [Password]) Values (?, ?)", connection)
+                    Register.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = Email.Text
+                    Register.Parameters.AddWithValue("@2", OleDbType.VarChar).Value = Password.Text
+                    Register.ExecuteNonQuery()
+                    Register.Dispose()
+
+                    MsgBox("Registration Successful.", MsgBoxStyle.Information)
+                    Password.Text = ""
+                End If
+
             Else
-                Dim Register As New OleDbCommand("Insert into Users([Email], [Password]) Values (?, ?)", connection)
-                Register.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = Email.Text
-                Register.Parameters.AddWithValue("@2", OleDbType.VarChar).Value = Password.Text
-                Register.ExecuteNonQuery()
-                Register.Dispose()
-
-                MsgBox("Registration Successful.", MsgBoxStyle.Information)
-                Password.Text = ""
+                MsgBox("Invalid Email or password. Password must be at least 7 characters.", MsgBoxStyle.Exclamation)
             End If
         End If
     End Sub
