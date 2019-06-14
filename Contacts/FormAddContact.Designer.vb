@@ -95,7 +95,7 @@ Partial Class FormAddContact
         Me.ButtonAddContact.Location = New System.Drawing.Point(112, 332)
         Me.ButtonAddContact.Name = "ButtonAddContact"
         Me.ButtonAddContact.Size = New System.Drawing.Size(102, 31)
-        Me.ButtonAddContact.TabIndex = 18
+        Me.ButtonAddContact.TabIndex = 21
         Me.ButtonAddContact.Text = "Add Contact"
         Me.ButtonAddContact.UseVisualStyleBackColor = False
         '
@@ -109,7 +109,7 @@ Partial Class FormAddContact
         Me.ContactName.Location = New System.Drawing.Point(99, 272)
         Me.ContactName.Name = "ContactName"
         Me.ContactName.Size = New System.Drawing.Size(194, 19)
-        Me.ContactName.TabIndex = 21
+        Me.ContactName.TabIndex = 18
         '
         'Panel2
         '
