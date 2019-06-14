@@ -31,6 +31,7 @@ Partial Class FormAccount
         Me.Label1 = New System.Windows.Forms.Label()
         Me.UserEmail = New System.Windows.Forms.Label()
         Me.Timer = New System.Windows.Forms.Timer(Me.components)
+        Me.ButtonAddContact = New System.Windows.Forms.Button()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -79,11 +80,11 @@ Partial Class FormAccount
         Me.Contacts.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Contacts.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Contacts.ForeColor = System.Drawing.Color.White
-        Me.Contacts.Location = New System.Drawing.Point(99, 240)
+        Me.Contacts.Location = New System.Drawing.Point(99, 292)
         Me.Contacts.Name = "Contacts"
         Me.Contacts.Size = New System.Drawing.Size(129, 31)
         Me.Contacts.TabIndex = 13
-        Me.Contacts.Text = "Contacts"
+        Me.Contacts.Text = "Show Contacts"
         Me.Contacts.UseVisualStyleBackColor = False
         '
         'Logout
@@ -93,7 +94,7 @@ Partial Class FormAccount
         Me.Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Logout.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Logout.ForeColor = System.Drawing.Color.White
-        Me.Logout.Location = New System.Drawing.Point(99, 310)
+        Me.Logout.Location = New System.Drawing.Point(99, 351)
         Me.Logout.Name = "Logout"
         Me.Logout.Size = New System.Drawing.Size(129, 31)
         Me.Logout.TabIndex = 14
@@ -130,12 +131,27 @@ Partial Class FormAccount
         '
         Me.Timer.Interval = 500
         '
+        'ButtonAddContact
+        '
+        Me.ButtonAddContact.BackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(49, Byte), Integer))
+        Me.ButtonAddContact.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ButtonAddContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonAddContact.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonAddContact.ForeColor = System.Drawing.Color.White
+        Me.ButtonAddContact.Location = New System.Drawing.Point(109, 234)
+        Me.ButtonAddContact.Name = "ButtonAddContact"
+        Me.ButtonAddContact.Size = New System.Drawing.Size(102, 31)
+        Me.ButtonAddContact.TabIndex = 19
+        Me.ButtonAddContact.Text = "Add Contact"
+        Me.ButtonAddContact.UseVisualStyleBackColor = False
+        '
         'FormAccount
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(331, 429)
+        Me.Controls.Add(Me.ButtonAddContact)
         Me.Controls.Add(Me.UserEmail)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Logout)
@@ -161,4 +177,5 @@ Partial Class FormAccount
     Friend WithEvents Label1 As Label
     Friend WithEvents UserEmail As Label
     Friend WithEvents Timer As Timer
+    Friend WithEvents ButtonAddContact As Button
 End Class

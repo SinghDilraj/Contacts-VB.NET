@@ -41,14 +41,6 @@ Public Class FormContacts
         connection.Dispose()
     End Sub
 
-    Private Sub ButtonAddContact_Click(sender As Object, e As EventArgs) Handles ButtonAddContact.Click
-        Dim formAddContact As New FormAddContact With {
-            .Email = Email
-        }
-        formAddContact.Show()
-        Close()
-    End Sub
-
     Private Sub ToExcel_Click(sender As Object, e As EventArgs) Handles ToExcel.Click
         Dim datatable As New DataTable()
 
@@ -78,6 +70,14 @@ Public Class FormContacts
 
         MsgBox($"Exported Successfully. File Name ->> {fileName}.", MsgBoxStyle.Information)
         Process.Start("explorer.exe", fileDir)
+    End Sub
+
+    Private Sub ButtonAccount_Click(sender As Object, e As EventArgs) Handles ButtonAccount.Click
+        Dim formAccount As New FormAccount With {
+            .Email = Email
+        }
+        formAccount.Show()
+        Close()
     End Sub
 
     Private Sub MouseMoveEvent(sender As Object, e As MouseEventArgs) Handles Panel3.MouseMove

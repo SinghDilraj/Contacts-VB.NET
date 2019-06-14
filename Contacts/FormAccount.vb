@@ -4,7 +4,6 @@ Public Class FormAccount
     Dim x, y As Integer
     Dim newPoint As New Point
     Public Email As String
-    Dim connection As New OleDbConnection(My.Settings.ContactsConnectionString)
     Private Sub ButtonClose_Click(sender As Object, e As EventArgs) Handles ButtonClose.Click
         Close()
     End Sub
@@ -21,7 +20,13 @@ Public Class FormAccount
         UserEmail.Left = Width
     End Sub
 
-
+    Private Sub ButtonAddContact_Click(sender As Object, e As EventArgs)
+        Dim formAddContact As New FormAddContact With {
+            .Email = Email
+        }
+        formAddContact.Show()
+        Close()
+    End Sub
 
     Private Sub Logout_Click(sender As Object, e As EventArgs) Handles Logout.Click
         Hide()
@@ -42,6 +47,14 @@ Public Class FormAccount
             .Email = Email
         }
         formContacts.Show()
+        Close()
+    End Sub
+
+    Private Sub ButtonAddContact_Click_1(sender As Object, e As EventArgs) Handles ButtonAddContact.Click
+        Dim formAddContact As New FormAddContact With {
+            .Email = Email
+        }
+        formAddContact.Show()
         Close()
     End Sub
 
