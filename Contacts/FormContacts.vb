@@ -74,7 +74,8 @@ Public Class FormContacts
             wb.SaveAs(folderPath & Convert.ToString($"ContactsViewExportfor{Email}.xlsx"))
         End Using
 
-        MsgBox("Exported Successfully.", MsgBoxStyle.Information)
+        MsgBox($"Exported Successfully. Folder ->> {folderPath}.", MsgBoxStyle.Information)
+        Process.Start("explorer.exe", folderPath)
     End Sub
 
     Private Sub MouseMoveEvent(sender As Object, e As MouseEventArgs) Handles Panel3.MouseMove
