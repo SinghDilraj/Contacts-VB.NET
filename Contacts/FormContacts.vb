@@ -65,17 +65,19 @@ Public Class FormContacts
 
         Dim Path As String = Directory.GetCurrentDirectory()
         Dim folderPath As String = "Path/../../../Excel/"
+        Dim fileName As String = $"ContactsFor{Email}.xlsx"
+        Dim fileDir As String = Directory.GetParent(folderPath + fileName).ToString()
 
         If Not Directory.Exists(folderPath) Then
             Directory.CreateDirectory(folderPath)
         End If
         Using wb As New XLWorkbook()
             wb.Worksheets.Add(datatable, "Contacts")
-            wb.SaveAs(folderPath & Convert.ToString($"ContactsViewExportfor{Email}.xlsx"))
+            wb.SaveAs(folderPath & Convert.ToString(fileName))
         End Using
 
-        MsgBox($"Exported Successfully. Folder ->> {folderPath}.", MsgBoxStyle.Information)
-        Process.Start("explorer.exe", folderPath)
+        MsgBox($"Exported Successfully. File Name ->> {fileName}.", MsgBoxStyle.Information)
+        Process.Start("explorer.exe", fileDir)
     End Sub
 
     Private Sub MouseMoveEvent(sender As Object, e As MouseEventArgs) Handles Panel3.MouseMove
