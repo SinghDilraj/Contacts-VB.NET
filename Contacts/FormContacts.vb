@@ -42,7 +42,7 @@ Public Class FormContacts
 
         ListContacts.DataSource = table
 
-        connection.Dispose()
+        connection.Close()
     End Sub
 
     Private Sub ToExcel_Click(sender As Object, e As EventArgs) Handles ToExcel.Click

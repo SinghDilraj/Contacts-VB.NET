@@ -46,6 +46,13 @@ Public Class FormAddContact
                 CreateRelation.Parameters.AddWithValue("@2", OleDbType.Integer).Value = ContactId
                 CreateRelation.ExecuteNonQuery()
 
+                Dim formContacts As New FormContacts With {
+                .Email = Email
+                }
+                Close()
+                formContacts.Show()
+
+                connection.Close()
             Else
                 MsgBox("Invalid Email. Must include '@' and '.' characters.", MsgBoxStyle.Exclamation)
             End If
@@ -53,13 +60,6 @@ Public Class FormAddContact
             MsgBox("Contact Email and Name is Required.", MsgBoxStyle.Critical)
         End If
 
-        connection.Dispose()
-
-        Dim formContacts As New FormContacts With {
-            .Email = Email
-        }
-        Close()
-        formContacts.Show()
     End Sub
 
     Private Sub MouseMoveEvent(sender As Object, e As MouseEventArgs) Handles Panel3.MouseMove

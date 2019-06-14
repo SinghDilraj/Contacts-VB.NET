@@ -30,6 +30,8 @@ Public Class FormLogin
                     }
                     formAccount.Show()
                     Hide()
+
+                    connection.Close()
                 Else
                     MsgBox("Invalid Email or Password.", MsgBoxStyle.Critical)
                 End If
@@ -68,6 +70,8 @@ Public Class FormLogin
 
                     MsgBox("Registration Successful.", MsgBoxStyle.Information)
                     Password.Text = ""
+
+                    connection.Close()
                 End If
 
             Else
