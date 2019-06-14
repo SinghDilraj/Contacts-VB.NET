@@ -35,6 +35,8 @@ Public Class FormContacts
         End While
 
         ListContacts.DataSource = table
+        ListContacts.DisplayMember = "Email"
+        ListContacts.ValueMember = "Email"
         connection.Dispose()
     End Sub
 
