@@ -27,13 +27,14 @@ Public Class FormAddContact
         GetUserId.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = Email
         Dim UserId = Convert.ToInt32(GetUserId.ExecuteScalar())
 
-        If ContactEmail IsNot Nothing Then
+        If ContactEmail IsNot Nothing And ContactName IsNot Nothing Then
             If ContactEmail.Text.Contains("@") And
                 ContactEmail.Text.Contains(".") And
                 ContactEmail.Text.Length > 5 Then
 
-                Dim AddContact As New OleDbCommand("Insert Into Contacts([Email]) Values (?)", connection)
+                Dim AddContact As New OleDbCommand("Insert Into Contacts([Email], [GivenName]) Values (?, ?)", connection)
                 AddContact.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = ContactEmail.Text
+                AddContact.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = ContactName.Text
                 AddContact.ExecuteNonQuery()
 
                 Dim GetContactId As New OleDbCommand("select ContactID from Contacts where Email=?", connection)
@@ -49,7 +50,7 @@ Public Class FormAddContact
                 MsgBox("Invalid Email. Must include '@' and '.' characters.", MsgBoxStyle.Exclamation)
             End If
         Else
-            MsgBox("Contact Email is Required.", MsgBoxStyle.Critical)
+            MsgBox("Contact Email and Name is Required.", MsgBoxStyle.Critical)
         End If
 
         connection.Dispose()

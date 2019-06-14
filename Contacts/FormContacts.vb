@@ -32,7 +32,7 @@ Public Class FormContacts
         Dim table As New DataTable()
 
         While ContactIds.Read()
-            Dim adapter As New OleDbDataAdapter($"select Email from Contacts where ContactID={ContactIds.Item("ContactID")}", connection)
+            Dim adapter As New OleDbDataAdapter($"select Email, GivenName from Contacts where ContactID={ContactIds.Item("ContactID")}", connection)
             adapter.Fill(table)
         End While
 
