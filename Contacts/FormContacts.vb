@@ -63,13 +63,15 @@ Public Class FormContacts
             Next
         Next
 
-        Dim folderPath As String = "~/Excel"
+        Dim Path As String = Directory.GetCurrentDirectory()
+        Dim folderPath As String = "Path/../../../Excel/"
+
         If Not Directory.Exists(folderPath) Then
             Directory.CreateDirectory(folderPath)
         End If
         Using wb As New XLWorkbook()
             wb.Worksheets.Add(datatable, "Contacts")
-            wb.SaveAs(folderPath & Convert.ToString("ContactsViewExport.xlsx"))
+            wb.SaveAs(folderPath & Convert.ToString($"ContactsViewExportfor{Email}.xlsx"))
         End Using
 
         MsgBox("Exported Successfully.", MsgBoxStyle.Information)
