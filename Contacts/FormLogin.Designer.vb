@@ -33,6 +33,9 @@ Partial Class FormLogin
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -46,11 +49,10 @@ Partial Class FormLogin
         Me.Email.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.Email.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Email.ForeColor = System.Drawing.SystemColors.Window
-        Me.Email.Location = New System.Drawing.Point(116, 175)
+        Me.Email.Location = New System.Drawing.Point(116, 186)
         Me.Email.Name = "Email"
         Me.Email.Size = New System.Drawing.Size(194, 19)
         Me.Email.TabIndex = 1
-        Me.Email.Text = "Email"
         '
         'Password
         '
@@ -59,18 +61,17 @@ Partial Class FormLogin
         Me.Password.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.Password.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Password.ForeColor = System.Drawing.SystemColors.Window
-        Me.Password.Location = New System.Drawing.Point(116, 238)
+        Me.Password.Location = New System.Drawing.Point(116, 262)
         Me.Password.Name = "Password"
         Me.Password.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.Password.Size = New System.Drawing.Size(194, 19)
         Me.Password.TabIndex = 2
-        Me.Password.Text = "Password"
         Me.Password.UseSystemPasswordChar = True
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.Window
-        Me.Panel1.Location = New System.Drawing.Point(60, 203)
+        Me.Panel1.Location = New System.Drawing.Point(60, 214)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(250, 1)
         Me.Panel1.TabIndex = 5
@@ -78,7 +79,7 @@ Partial Class FormLogin
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.SystemColors.Window
-        Me.Panel2.Location = New System.Drawing.Point(60, 265)
+        Me.Panel2.Location = New System.Drawing.Point(60, 289)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(250, 1)
         Me.Panel2.TabIndex = 6
@@ -104,7 +105,7 @@ Partial Class FormLogin
         Me.ButtonRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ButtonRegister.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ButtonRegister.ForeColor = System.Drawing.Color.White
-        Me.ButtonRegister.Location = New System.Drawing.Point(97, 365)
+        Me.ButtonRegister.Location = New System.Drawing.Point(97, 386)
         Me.ButtonRegister.Name = "ButtonRegister"
         Me.ButtonRegister.Size = New System.Drawing.Size(129, 31)
         Me.ButtonRegister.TabIndex = 8
@@ -139,7 +140,7 @@ Partial Class FormLogin
         'PictureBox3
         '
         Me.PictureBox3.Image = Global.Contacts.My.Resources.Resources.PasswordIcon
-        Me.PictureBox3.Location = New System.Drawing.Point(60, 227)
+        Me.PictureBox3.Location = New System.Drawing.Point(60, 251)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(36, 39)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -149,7 +150,7 @@ Partial Class FormLogin
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.Contacts.My.Resources.Resources.EmailIcon
-        Me.PictureBox2.Location = New System.Drawing.Point(60, 163)
+        Me.PictureBox2.Location = New System.Drawing.Point(60, 174)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(36, 41)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -168,12 +169,48 @@ Partial Class FormLogin
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(44, 230)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(78, 18)
+        Me.Label2.TabIndex = 24
+        Me.Label2.Text = "Password"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(57, 153)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(48, 18)
+        Me.Label1.TabIndex = 25
+        Me.Label1.Text = "Email"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(148, 358)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(20, 15)
+        Me.Label3.TabIndex = 26
+        Me.Label3.Text = "Or"
+        '
         'FormLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(331, 429)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.ButtonRegister)
         Me.Controls.Add(Me.ButtonLogin)
@@ -207,4 +244,7 @@ Partial Class FormLogin
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents ButtonClose As Button
     Friend WithEvents Panel3 As Panel
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label3 As Label
 End Class
