@@ -38,9 +38,8 @@ Public Class FormLogin
             If connection.State = ConnectionState.Closed Then
                 connection.Open()
             End If
-            Dim UserExists As New OleDbCommand("select count(*) from Users where Email=? and Password=?", connection)
+            Dim UserExists As New OleDbCommand("select count(*) from Users where Email=?", connection)
             UserExists.Parameters.AddWithValue("@1", OleDbType.VarChar).Value = Email.Text
-            UserExists.Parameters.AddWithValue("@2", OleDbType.VarChar).Value = Password.Text
 
             Dim count = Convert.ToInt32(UserExists.ExecuteScalar())
 
