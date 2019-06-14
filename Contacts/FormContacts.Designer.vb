@@ -22,13 +22,16 @@ Partial Class FormContacts
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.ButtonClose = New System.Windows.Forms.Button()
         Me.ButtonAddContact = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ListContacts = New System.Windows.Forms.ListBox()
+        Me.ListContacts = New System.Windows.Forms.DataGridView()
+        Me.ToExcel = New System.Windows.Forms.Button()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ListContacts, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel3
@@ -84,17 +87,42 @@ Partial Class FormContacts
         '
         'ListContacts
         '
-        Me.ListContacts.BackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(49, Byte), Integer))
+        Me.ListContacts.AllowUserToAddRows = False
+        Me.ListContacts.AllowUserToDeleteRows = False
+        Me.ListContacts.AllowUserToResizeColumns = False
+        Me.ListContacts.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ListContacts.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.ListContacts.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListContacts.ForeColor = System.Drawing.SystemColors.Window
-        Me.ListContacts.FormattingEnabled = True
-        Me.ListContacts.ItemHeight = 17
-        Me.ListContacts.Location = New System.Drawing.Point(86, 205)
+        Me.ListContacts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
+        Me.ListContacts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ListContacts.ColumnHeadersVisible = False
+        Me.ListContacts.Location = New System.Drawing.Point(12, 206)
         Me.ListContacts.Name = "ListContacts"
-        Me.ListContacts.SelectionMode = System.Windows.Forms.SelectionMode.None
-        Me.ListContacts.Size = New System.Drawing.Size(213, 238)
-        Me.ListContacts.TabIndex = 14
+        Me.ListContacts.ReadOnly = True
+        Me.ListContacts.RowHeadersVisible = False
+        Me.ListContacts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(49, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.Padding = New System.Windows.Forms.Padding(3)
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(49, Byte), Integer))
+        Me.ListContacts.RowsDefaultCellStyle = DataGridViewCellStyle2
+        Me.ListContacts.RowTemplate.ReadOnly = True
+        Me.ListContacts.Size = New System.Drawing.Size(307, 206)
+        Me.ListContacts.TabIndex = 15
+        '
+        'ToExcel
+        '
+        Me.ToExcel.BackColor = System.Drawing.Color.FromArgb(CType(CType(14, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(49, Byte), Integer))
+        Me.ToExcel.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ToExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ToExcel.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToExcel.ForeColor = System.Drawing.Color.White
+        Me.ToExcel.Location = New System.Drawing.Point(113, 418)
+        Me.ToExcel.Name = "ToExcel"
+        Me.ToExcel.Size = New System.Drawing.Size(102, 31)
+        Me.ToExcel.TabIndex = 16
+        Me.ToExcel.Text = "To Excel"
+        Me.ToExcel.UseVisualStyleBackColor = False
         '
         'FormContacts
         '
@@ -103,6 +131,7 @@ Partial Class FormContacts
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(331, 490)
+        Me.Controls.Add(Me.ToExcel)
         Me.Controls.Add(Me.ListContacts)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.ButtonAddContact)
@@ -113,6 +142,7 @@ Partial Class FormContacts
         Me.Text = "FormContacts"
         Me.Panel3.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ListContacts, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -128,5 +158,6 @@ Partial Class FormContacts
     Friend WithEvents EmailDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents ListContacts As ListBox
+    Friend WithEvents ListContacts As DataGridView
+    Friend WithEvents ToExcel As Button
 End Class

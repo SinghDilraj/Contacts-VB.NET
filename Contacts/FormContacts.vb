@@ -1,4 +1,6 @@
 ﻿Imports System.Data.OleDb
+Imports System.IO
+Imports ClosedXML.Excel
 
 Public Class FormContacts
     Dim x, y As Integer
@@ -35,8 +37,8 @@ Public Class FormContacts
         End While
 
         ListContacts.DataSource = table
-        ListContacts.DisplayMember = "Email"
-        ListContacts.ValueMember = "Email"
+        'ListContacts.DisplayMember = "Email"
+        'ListContacts.ValueMember = "Email"
         connection.Dispose()
     End Sub
 
@@ -46,6 +48,30 @@ Public Class FormContacts
         }
         formAddContact.Show()
         Close()
+    End Sub
+
+    Private Sub ToExcel_Click(sender As Object, e As EventArgs) Handles ToExcel.Click
+        Dim datatable As New DataTable()
+
+        For Each column As DataGridViewColumn In ListContacts.Columns
+            datatable.Columns.Add(column.HeaderText, column.ValueType)
+        Next
+
+        For Each row As DataGridViewRow In ListContacts.Rows
+            datatable.Rows.Add()
+            For Each cell As DataGridViewCell In row.Cells
+                datatable.Rows(datatable.Rows.Count - 1)(cell.ColumnIndex) = cell.Value.ToString()
+            Next
+        Next
+
+        Dim folderPath As String = "~/Excel"
+        If Not Directory.Exists(folderPath) Then
+            Directory.CreateDirectory(folderPath)
+        End If
+        Using wb As New XLWorkbook()
+            wb.Worksheets.Add(datatable, "Contacts")
+            wb.SaveAs(folderPath & Convert.ToString("ContactsViewExport.xlsx"))
+        End Using
     End Sub
 
     Private Sub MouseMoveEvent(sender As Object, e As MouseEventArgs) Handles Panel3.MouseMove
